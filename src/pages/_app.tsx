@@ -1,6 +1,7 @@
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import type { AppProps } from "next/app";
 import { useState } from "react";
+import { Header } from "src/component/Header/";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: colorScheme,
         }}
       >
+        <Header />
         <Component {...pageProps} />
       </MantineProvider>
     </ColorSchemeProvider>
