@@ -12,6 +12,7 @@ import {
 import { IconMoon, IconSun } from "@tabler/icons";
 import type { NextPage } from "next";
 import { useState } from "react";
+import { Index } from "src/pages-component/index";
 
 const Home: NextPage = () => {
   // FIX ME
@@ -25,24 +26,37 @@ const Home: NextPage = () => {
       <Header height={70}>
         <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
           <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-            <Burger opened={opened} onClick={() => setOpened((o) => !o)} size="sm" mr="xl" />
+            <Burger opened={opened} onClick={() => setOpened((o) => !o)} size="sm" ml={10} />
           </MediaQuery>
           <Box
             sx={(_t) => ({
               width: "100%",
             })}
           >
-            <Container size="md">
+            <Container size="md" p={0}>
               <Group position="apart">
-                <Text weight={700}>John Doe Profile</Text>
-                <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30}>
-                  {isDark ? <IconSun size={16} /> : <IconMoon size={16} />}
-                </ActionIcon>
+                <Text weight={700} ml={10}>
+                  John Doe Profile
+                </Text>
+                <Group>
+                  <MediaQuery smallerThan={"sm"} styles={{ display: "none" }}>
+                    <Group>
+                      <Text weight={700}>About</Text>
+                      <Text weight={700}>Blog</Text>
+                      <Text weight={700}>Portfolio</Text>
+                      <Text weight={700}>Contact</Text>
+                    </Group>
+                  </MediaQuery>
+                  <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30} mr={10}>
+                    {isDark ? <IconSun size={16} /> : <IconMoon size={16} />}
+                  </ActionIcon>
+                </Group>
               </Group>
             </Container>
           </Box>
         </div>
       </Header>
+      <Index />
     </Box>
   );
 };
