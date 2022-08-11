@@ -543,6 +543,13 @@
     semver "^7.3.7"
     tsutils "^3.21.0"
 
+"@typescript-eslint/experimental-utils@^5.9.1":
+  version "5.33.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-5.33.0.tgz#94ca44da43731f2c62d91eb0c75917588bc483a2"
+  integrity sha512-NvRsNe+T90QrSVlgdV9/U8/chfqGmShvKUE7hWZTAUUCF6hZty/R+eMPVGldKcUDq7uRQaK6+V8gv5OwVDqC+g==
+  dependencies:
+    "@typescript-eslint/utils" "5.33.0"
+
 "@typescript-eslint/parser@5.10.1":
   version "5.10.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.10.1.tgz#4ce9633cc33fc70bc13786cb793c1a76fe5ad6bd"
@@ -611,7 +618,7 @@
     semver "^7.3.5"
     tsutils "^3.21.0"
 
-"@typescript-eslint/typescript-estree@5.33.0":
+"@typescript-eslint/typescript-estree@5.33.0", "@typescript-eslint/typescript-estree@^5.9.1":
   version "5.33.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-5.33.0.tgz#02d9c9ade6f4897c09e3508c27de53ad6bfa54cf"
   integrity sha512-tqq3MRLlggkJKJUrzM6wltk8NckKyyorCSGMq4eVkyL5sDYzJJcMgZATqmF8fLdsWrW7OjjIZ1m9v81vKcaqwQ==
@@ -1203,6 +1210,15 @@ eslint-module-utils@^2.7.0, eslint-module-utils@^2.7.3:
   dependencies:
     debug "^3.2.7"
     find-up "^2.1.0"
+
+eslint-plugin-import-access@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import-access/-/eslint-plugin-import-access-1.0.1.tgz#47ccf8baa89b5ecd1c355823926c520c064108ed"
+  integrity sha512-u9vNNDh7RTVUoPMsLepDt0fII5d8+k84/igZ41Hn4vqYMfktYAiwF4Y0pYGYDcZ6Ln7IB/VRaB6YUfRgFx8+Aw==
+  dependencies:
+    "@typescript-eslint/experimental-utils" "^5.9.1"
+    "@typescript-eslint/typescript-estree" "^5.9.1"
+    tsutils "^3.21.0"
 
 eslint-plugin-import@2.25.2:
   version "2.25.2"

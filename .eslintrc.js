@@ -31,7 +31,7 @@ module.exports = {
       node: { extensions: [".ts"] },
     },
   },
-  plugins: ["react", "@typescript-eslint", "import", "unused-imports"],
+  plugins: ["react", "@typescript-eslint", "import", "unused-imports", "import-access"],
   rules: {
     "require-jsdoc": "off",
     "sort-imports": 0,
@@ -73,5 +73,6 @@ module.exports = {
         checkInlineFunction: true,
       },
     ],
+    "import-access/jsdoc": ["error"],
   },
 };
