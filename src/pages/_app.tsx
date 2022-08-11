@@ -1,6 +1,7 @@
-import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { Box, ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import type { AppProps } from "next/app";
 import { useState } from "react";
+import { Footer } from "src/component/Footer";
 import { Header } from "src/component/Header/";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -17,8 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: colorScheme,
         }}
       >
-        <Header />
-        <Component {...pageProps} />
+        <Box>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </Box>
       </MantineProvider>
     </ColorSchemeProvider>
   );
