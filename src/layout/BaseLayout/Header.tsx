@@ -75,6 +75,7 @@ export const Header: FC = () => {
             right: 12,
             color: "white",
             "&:not(:disabled):active": { transform: "none" },
+            outline: "none",
           }}
         />
         <Space h={25} />
