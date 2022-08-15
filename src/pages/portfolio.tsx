@@ -1,14 +1,9 @@
-import { Container } from "@mantine/core";
 import { NextPage } from "next";
 import React from "react";
-import { PortfolioSection } from "src/component/PortfolioSection";
+import { Portfolio } from "src/pages-component/portfolio";
 
-const Portfolio: NextPage = () => {
-  return (
-    <Container>
-      <PortfolioSection />
-    </Container>
-  );
+const PortfolioPage: NextPage = () => {
+  return <Portfolio />;
 };
 
-export default Portfolio;
+export default PortfolioPage;

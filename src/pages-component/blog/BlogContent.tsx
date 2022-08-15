@@ -1,5 +1,5 @@
 import { Space, Stack, Text } from "@mantine/core";
-import React, { FC } from "react";
+import type { FC } from "react";
 import { format, parseISO } from "date-fns";
 
 type BlogType = {
@@ -12,6 +12,7 @@ type BlogType = {
 /** @package */
 export const BlogContent: FC<BlogType> = (props) => {
   const { title, content, date } = props;
+
   return (
     <Stack spacing={5}>
       <Text size="xl" weight={500}>

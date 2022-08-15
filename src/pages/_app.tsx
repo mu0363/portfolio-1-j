@@ -1,8 +1,8 @@
-import { Box, ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import "src/styles/globals.css";
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import type { AppProps } from "next/app";
 import { useState } from "react";
-import { Footer } from "src/component/Footer";
-import { Header } from "src/component/Header/";
+import { PortfolioLayout } from "src/layout/PortfolioLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -18,11 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: colorScheme,
         }}
       >
-        <Box>
-          <Header />
+        <PortfolioLayout>
           <Component {...pageProps} />
-          <Footer />
-        </Box>
+        </PortfolioLayout>
       </MantineProvider>
     </ColorSchemeProvider>
   );

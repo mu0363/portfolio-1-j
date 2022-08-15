@@ -1,11 +1,11 @@
+import type { FC } from "react";
 import { Box, Button, Center, Space } from "@mantine/core";
-import React, { FC } from "react";
-import { GitHubContent } from "src/component/GitHubSection/GitHubContent";
+import { GitHubContent } from "./GitHubContent";
 import { SectionTitle } from "src/component/SectionTitle";
 import { githubData } from "src/lib/const";
 
 /** @package */
-export const GitHubSection: FC = () => {
+export const GitHub: FC = () => {
   return (
     <Box>
       <SectionTitle title="Github" />

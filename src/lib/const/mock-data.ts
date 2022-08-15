@@ -143,7 +143,7 @@ export const twitterData = [
     accountName: "しまぶーのIT大学",
     accountId: "@shimabu_it",
     avatar: "https://i.pravatar.cc/300",
-    title: "💡 新サービス「NoWay Form」をリリースしました！",
+    title: "💡 新サービス「NoWay Form」をリリースしました!",
     content:
       "NoWay Formは、Notionのデータベースを元にフォームを作成できるサービスです。これまでGoogle FormでやっていたことがNotionだけで完結します✨ 試しに使っていただけると幸いです!",
     date: "2022-08-16T09:52:48.664Z",
@@ -153,7 +153,7 @@ export const twitterData = [
     accountName: "しまぶーのIT大学",
     accountId: "@shimabu_it",
     avatar: "https://i.pravatar.cc/300",
-    title: "💡 新サービス「NoWay Form」をリリースしました！",
+    title: "💡 新サービス「NoWay Form」をリリースしました!",
     content:
       "NoWay Formは、Notionのデータベースを元にフォームを作成できるサービスです。これまでGoogle FormでやっていたことがNotionだけで完結します✨ 試しに使っていただけると幸いです!",
     date: "2022-08-16T09:52:48.664Z",
@@ -163,7 +163,7 @@ export const twitterData = [
     accountName: "しまぶーのIT大学",
     accountId: "@shimabu_it",
     avatar: "https://i.pravatar.cc/300",
-    title: "💡 新サービス「NoWay Form」をリリースしました！",
+    title: "💡 新サービス「NoWay Form」をリリースしました!",
     content:
       "NoWay Formは、Notionのデータベースを元にフォームを作成できるサービスです。これまでGoogle FormでやっていたことがNotionだけで完結します✨ 試しに使っていただけると幸いです!",
     date: "2022-08-16T09:52:48.664Z",
