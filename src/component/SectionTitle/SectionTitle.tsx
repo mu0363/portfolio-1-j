@@ -1,5 +1,5 @@
 import { Box, Divider, Space, Title } from "@mantine/core";
-import React, { FC } from "react";
+import type { FC } from "react";
 
 /** @package */
 export const SectionTitle: FC<{ title: string }> = (props) => {

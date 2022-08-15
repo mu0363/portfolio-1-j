@@ -1,14 +1,13 @@
-import { Box, Button, Center, Space } from "@mantine/core";
-import React, { FC } from "react";
-import { BlogContent } from "src/component/BlogSection/BlogContent";
-
+import { Button, Center, Container, Space } from "@mantine/core";
+import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 import { blogData } from "src/lib/const";
+import { BlogContent } from "./BlogContent";
 
 /** @package */
-export const BlogSection: FC = () => {
+export const Blog: FC = () => {
   return (
-    <Box>
+    <Container>
       <SectionTitle title="Blog" />
       <Space h={20} />
       {blogData.map((blog) => (
@@ -27,6 +26,6 @@ export const BlogSection: FC = () => {
         </Button>
       </Center>
       <Space h={60} />
-    </Box>
+    </Container>
   );
 };
