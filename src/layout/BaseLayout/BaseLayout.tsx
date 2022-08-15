@@ -1,9 +1,10 @@
 import { AppShell, Footer, Group, Space, Text } from "@mantine/core";
+import { Header } from "./Header";
 import type { FC } from "react";
-import { Header } from "src/layout/PortfolioLayout/Header";
+import { LayoutErrorBoundary } from "src/layout/BaseLayout/LayoutErrorBoundary";
 
 /** @package */
-export const PortfolioLayout: FC = ({ children }) => {
+export const BaseLayout: FC = ({ children }) => {
   return (
     <AppShell
       styles={{
@@ -25,7 +26,7 @@ export const PortfolioLayout: FC = ({ children }) => {
       }
       header={<Header />}
     >
-      {children}
+      <LayoutErrorBoundary>{children}</LayoutErrorBoundary>
     </AppShell>
   );
 };
