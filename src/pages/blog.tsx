@@ -1,14 +1,9 @@
-import { Container } from "@mantine/core";
 import { NextPage } from "next";
 import React from "react";
-import { BlogSection } from "src/component/BlogSection";
+import { Blog } from "src/pages-component/blog";
 
-const Blog: NextPage = () => {
-  return (
-    <Container>
-      <BlogSection />
-    </Container>
-  );
+const BlogPage: NextPage = () => {
+  return <Blog />;
 };
 
-export default Blog;
+export default BlogPage;

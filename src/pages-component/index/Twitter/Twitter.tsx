@@ -1,12 +1,11 @@
 import { Box, Button, Center } from "@mantine/core";
-import React, { FC } from "react";
-
+import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
-import { TwitterContent } from "src/component/TwitterSection/TwitterContent";
 import { twitterData } from "src/lib/const";
+import { TwitterContent } from "./TwitterContent";
 
 /** @package */
-export const TwitterSection: FC = () => {
+export const Twitter: FC = () => {
   return (
     <Box>
       <SectionTitle title="Twitter" />

@@ -1,5 +1,5 @@
 import { Avatar, Group, Space, Stack, Text } from "@mantine/core";
-import React, { FC } from "react";
+import type { FC } from "react";
 import { format, parseISO } from "date-fns";
 
 type TwitterType = {

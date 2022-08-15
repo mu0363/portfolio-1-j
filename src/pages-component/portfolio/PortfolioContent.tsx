@@ -1,7 +1,7 @@
 import { Space, Text } from "@mantine/core";
 import { format, parseISO } from "date-fns";
 import Image from "next/image";
-import React, { FC } from "react";
+import type { FC } from "react";
 
 type PortfolioType = {
   id: number;

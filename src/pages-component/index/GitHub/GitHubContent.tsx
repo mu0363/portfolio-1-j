@@ -1,6 +1,6 @@
 import { Group, Progress, Space, Stack, Text } from "@mantine/core";
 import { IconStar, IconGitFork } from "@tabler/icons";
-import React, { FC } from "react";
+import type { FC } from "react";
 
 type GitHubType = {
   id: number;
