@@ -1,7 +1,7 @@
 import "src/styles/globals.css";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import type { AppProps } from "next/app";
 import { useState } from "react";
+import type { AppProps } from "next/app";
 import { PortfolioLayout } from "src/layout/PortfolioLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,8 +1,8 @@
 import { Button, Center, Container, Space } from "@mantine/core";
+import { BlogContent } from "./BlogContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 import { blogData } from "src/lib/const";
-import { BlogContent } from "./BlogContent";
 
 /** @package */
 export const Blog: FC = () => {

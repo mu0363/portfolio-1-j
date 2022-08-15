@@ -1,8 +1,8 @@
 import { Box, Button, Center } from "@mantine/core";
+import { TwitterContent } from "./TwitterContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 import { twitterData } from "src/lib/const";
-import { TwitterContent } from "./TwitterContent";
 
 /** @package */
 export const Twitter: FC = () => {

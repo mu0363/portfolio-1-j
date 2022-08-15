@@ -74,5 +74,21 @@ module.exports = {
       },
     ],
     "import-access/jsdoc": ["error"],
+    "import/order": [
+      "error",
+      {
+        groups: ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        pathGroups: [
+          {
+            pattern: "@alias/**",
+            group: "parent",
+            position: "before",
+          },
+        ],
+        alphabetize: {
+          order: "asc",
+        },
+      },
+    ],
   },
 };
