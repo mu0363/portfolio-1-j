@@ -1,0 +1,42 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Styling, testing and building your project before committing"
+
+# Check Prettier standards
+yarn check-types ||
+(
+  echo "🤡😂❌🤡 Failed type check. 🤡😂❌🤡
+        Are you seriously trying to write that? Make the changes required above.";
+  false;
+)
+
+# Check Prettier standards
+yarn check-format ||
+(
+  echo "🤢🤮🤢🤮 Its F**KING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
+        コード整形されていないようです。 yarn format を実行してもう一度コミットしてね!";
+  false;
+)
+
+# Check ESLint standards
+yarn check-lint ||
+(
+  echo "😡🧶👋😡 Get that weaks s**t out of here! 😡🧶👋😡
+        ESLintが怒ってるよ! yarn check-lint を実行して修正後もう一度コミットしましょう!";
+  false;
+)
+
+# If everything passes... try to run build
+echo "🤔🤔🤔🤔... ふーむ... 今んところ良さげ... ビルド中です... 🤔🤔🤔🤔"
+
+# Check ESLint standards
+yarn check-lint ||
+(
+  echo "❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+        ビルドが失敗しました💦 エラー内容を確認してください!";
+  false;
+)
+
+# If it builds we can commit
+echo "✅ ✅ ✅  おめでとう！ コミット出来ました ✅ ✅ ✅ "
