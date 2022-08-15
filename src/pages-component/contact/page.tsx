@@ -53,7 +53,7 @@ export const Contact: FC = () => {
   };
 
   return (
-    <Container style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <Container>
       <SectionTitle title="Contact" />
       <Space h={20} />
       <form onSubmit={form.onSubmit(handleSubmit)}>
