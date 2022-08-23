@@ -1,5 +1,5 @@
 import { Box, Container, Grid, Group, MediaQuery, Stack, Text } from "@mantine/core";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import { TwitterIcon, FacebookIcon, RSSIcon } from "src/component/SVG";
 
 /** @package */
@@ -13,34 +13,18 @@ export const Hero: FC = () => {
     >
       <Container style={{ flex: 1 }}>
         <Grid>
-          <Grid.Col sm={6} md={6}>
+          <Grid.Col sm={12} md={6}>
             <Stack spacing={0}>
-              <MediaQuery largerThan="sm" styles={{ fontSize: 35 }}>
-                <Text
-                  size={30}
-                  weight={700}
-                  sx={(theme) => ({
-                    color: theme.colorScheme === "dark" ? theme.colors.pink[6] : "white",
-                  })}
-                >
-                  Shimabu IT University
-                </Text>
-              </MediaQuery>
-              <MediaQuery largerThan="sm" styles={{ fontSize: 16 }}>
-                <Text
-                  size={14}
-                  weight={700}
-                  sx={(theme) => ({
-                    color: theme.colorScheme === "dark" ? theme.colors.pink[6] : "white",
-                  })}
-                >
-                  しまぶーのポートフォリオのためのページです
-                </Text>
-              </MediaQuery>
+              <HeroText defaultSize={35} mobileSize={30}>
+                Shimabu IT University
+              </HeroText>
+              <HeroText defaultSize={16} mobileSize={14}>
+                しまぶーのポートフォリオのためのページです
+              </HeroText>
             </Stack>
           </Grid.Col>
           <MediaQuery largerThan="sm" styles={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
-            <Grid.Col sm={6} md={6} p={0}>
+            <Grid.Col sm={12} md={6} p={0}>
               <Group
                 sx={{
                   "@media (max-width: 768px)": {
@@ -58,5 +42,26 @@ export const Hero: FC = () => {
         </Grid>
       </Container>
     </Box>
+  );
+};
+
+const HeroText: FC<{ defaultSize: number; mobileSize: number; children: ReactNode }> = ({
+  defaultSize,
+  mobileSize,
+  children,
+}) => {
+  return (
+    <MediaQuery largerThan="sm" styles={{ fontSize: defaultSize }}>
+      <Text
+        size={mobileSize}
+        weight={700}
+        color="white"
+        sx={(theme) => ({
+          color: theme.colorScheme === "dark" ? theme.colors.gray[2] : "white",
+        })}
+      >
+        {children}
+      </Text>
+    </MediaQuery>
   );
 };

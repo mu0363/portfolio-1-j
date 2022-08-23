@@ -1,8 +1,8 @@
 import "src/styles/globals.css";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
-import type { AppProps } from "next/app";
 import { useState } from "react";
-import { PortfolioLayout } from "src/layout/PortfolioLayout";
+import type { AppProps } from "next/app";
+import { BaseLayout } from "src/layout/BaseLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
@@ -18,9 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           colorScheme: colorScheme,
         }}
       >
-        <PortfolioLayout>
+        <BaseLayout>
           <Component {...pageProps} />
-        </PortfolioLayout>
+        </BaseLayout>
       </MantineProvider>
     </ColorSchemeProvider>
   );
