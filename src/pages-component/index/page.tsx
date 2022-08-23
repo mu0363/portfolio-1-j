@@ -1,4 +1,4 @@
-import { Container, Grid, Space } from "@mantine/core";
+import { Container, Footer, Grid, Group, Space, Text } from "@mantine/core";
 import { GitHub } from "./GitHub";
 import { Hero } from "./Hero";
 import { Twitter } from "./Twitter";
@@ -9,7 +9,7 @@ import { Portfolio } from "src/pages-component/portfolio";
 /** @package */
 export const Index: FC = () => {
   return (
-    <main>
+    <>
       <Hero />
       <Blog />
       <Portfolio />
@@ -24,6 +24,11 @@ export const Index: FC = () => {
         </Grid>
       </Container>
       <Space h={75} />
-    </main>
+      <Footer height={70} p="xl" sx={{ position: "absolute", bottom: "0px" }}>
+        <Group position="center">
+          <Text>© 2022 Shimabu IT University</Text>
+        </Group>
+      </Footer>
+    </>
   );
 };
