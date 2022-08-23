@@ -43,7 +43,6 @@ export const Header: FC = () => {
   const router = useRouter();
   const [opened, handlers] = useDisclosure(false);
 
-  // SideNav のメニュークリックで Drawer を閉じる処理
   useEffect(() => {
     router.events.on("routeChangeStart", handlers.close);
     return () => {
