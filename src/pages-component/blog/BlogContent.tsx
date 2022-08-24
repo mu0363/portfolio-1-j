@@ -1,24 +1,21 @@
 import { Space, Stack, Text } from "@mantine/core";
-import { format, parseISO } from "date-fns";
+import Link from "next/link";
+// import { format, parseISO } from "date-fns";
 import type { FC } from "react";
-
-type BlogType = {
-  id: number;
-  title: string;
-  content: string;
-  date: string;
-};
+import { ContentType } from "src/pages/blog";
 
 /** @package */
-export const BlogContent: FC<BlogType> = (props) => {
-  const { title, content, date } = props;
+export const BlogContent: FC<ContentType> = (props) => {
+  const { title, body, id } = props;
 
   return (
     <Stack spacing={5}>
-      <Text size="xl" weight={500}>
-        {title}
-      </Text>
-      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{content}</Text>
+      <Link href={`/blog/${id}`} passHref>
+        <Text size="xl" weight={500} sx={{ cursor: "pointer" }}>
+          {title}
+        </Text>
+      </Link>
+      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{body}</Text>
       <Text
         size="sm"
         weight={700}
@@ -26,7 +23,7 @@ export const BlogContent: FC<BlogType> = (props) => {
           color: theme.colorScheme === "dark" ? theme.colors.gray[7] : "gray",
         })}
       >
-        {format(parseISO(date), "yyyy.MM.dd")}
+        {/* {format(parseISO(date), "yyyy.MM.dd")} */}
       </Text>
       <Space h="lg" />
     </Stack>
