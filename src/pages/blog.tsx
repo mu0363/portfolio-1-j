@@ -19,7 +19,6 @@ export const getStaticProps: GetStaticProps<MicroCMSProps> = async () => {
 
   return {
     props: data,
-    revalidate: 120,
   };
 };
 
