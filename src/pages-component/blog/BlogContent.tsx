@@ -1,24 +1,22 @@
 import { Space, Stack, Text } from "@mantine/core";
-import type { FC } from "react";
 import { format, parseISO } from "date-fns";
-
-type BlogType = {
-  id: number;
-  title: string;
-  content: string;
-  date: string;
-};
+import Link from "next/link";
+import type { FC } from "react";
+import { ContentType } from "src/pages/blog";
 
 /** @package */
-export const BlogContent: FC<BlogType> = (props) => {
-  const { title, content, date } = props;
+export const BlogContent: FC<ContentType> = (props) => {
+  const { title, body, id, publishedAt } = props;
 
+  // FIXME: ダークテーマのスタイルを当てる
   return (
     <Stack spacing={5}>
-      <Text size="xl" weight={500}>
-        {title}
-      </Text>
-      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{content}</Text>
+      <Link href={`/blog/${id}`} passHref>
+        <Text size="xl" weight={500} sx={{ cursor: "pointer" }}>
+          {title}
+        </Text>
+      </Link>
+      <Text dangerouslySetInnerHTML={{ __html: body }} lineClamp={2} />
       <Text
         size="sm"
         weight={700}
@@ -26,7 +24,7 @@ export const BlogContent: FC<BlogType> = (props) => {
           color: theme.colorScheme === "dark" ? theme.colors.gray[7] : "gray",
         })}
       >
-        {format(parseISO(date), "yyyy.MM.dd")}
+        {format(parseISO(publishedAt as string), "yyyy.MM.dd")}
       </Text>
       <Space h="lg" />
     </Stack>

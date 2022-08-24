@@ -1,6 +1,6 @@
-import type { FC } from "react";
 import { Box, Button, Center, Space } from "@mantine/core";
 import { GitHubContent } from "./GitHubContent";
+import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 import { githubData } from "src/lib/const";
 

@@ -19,6 +19,7 @@ import { IconMoon, IconSun } from "@tabler/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
+import { getPath } from "src/lib/const";
 
 const useStyles = createStyles((theme) => ({
   drawer: {
@@ -42,7 +43,6 @@ export const Header: FC = () => {
   const router = useRouter();
   const [opened, handlers] = useDisclosure(false);
 
-  // SideNav のメニュークリックで Drawer を閉じる処理
   useEffect(() => {
     router.events.on("routeChangeStart", handlers.close);
     return () => {
@@ -74,14 +74,15 @@ export const Header: FC = () => {
             right: 12,
             color: "white",
             "&:not(:disabled):active": { transform: "none" },
+            outline: "none",
           }}
         />
         <Space h={25} />
         <Stack>
-          <HeaderLink href="about" size={30} />
-          <HeaderLink href="blog" size={30} />
-          <HeaderLink href="portfolio" size={30} />
-          <HeaderLink href="contact" size={30} />
+          <HeaderLink href={getPath("ABOUT")} size={30} />
+          <HeaderLink href={getPath("BLOG")} size={30} />
+          <HeaderLink href={getPath("PORTFOLIO")} size={30} />
+          <HeaderLink href={getPath("CONTACT")} size={30} />
         </Stack>
       </Drawer>
       <Mantine height={70}>
@@ -114,10 +115,10 @@ export const Header: FC = () => {
                 <Group>
                   <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                     <Group>
-                      <HeaderLink href="about" />
-                      <HeaderLink href="blog" />
-                      <HeaderLink href="portfolio" />
-                      <HeaderLink href="contact" />
+                      <HeaderLink href={getPath("ABOUT")} />
+                      <HeaderLink href={getPath("BLOG")} />
+                      <HeaderLink href={getPath("PORTFOLIO")} />
+                      <HeaderLink href={getPath("CONTACT")} />
                     </Group>
                   </MediaQuery>
                   <ActionIcon variant="default" onClick={() => toggleColorScheme()} size={30} mr={10}>
@@ -140,10 +141,10 @@ type HeaderLinkProps = {
 };
 
 export const HeaderLink: FC<HeaderLinkProps> = ({ href, size }) => {
-  const linkName = `${href[0].toUpperCase()}${href.slice(1)}`;
+  const linkName = `${href[1].toUpperCase()}${href.slice(2)}`;
 
   return (
-    <Link href={`/${href}`} passHref>
+    <Link href={href} passHref>
       <Text size={size} weight={700} style={{ cursor: "pointer" }}>
         {linkName}
       </Text>

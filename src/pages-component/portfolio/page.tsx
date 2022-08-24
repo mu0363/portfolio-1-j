@@ -1,8 +1,8 @@
 import { Button, Center, Container, Grid, Space } from "@mantine/core";
+import { PortfolioContent } from "./PortfolioContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 import { portfolioData } from "src/lib/const";
-import { PortfolioContent } from "./PortfolioContent";
 
 /** @package */
 export const Portfolio: FC = () => {
@@ -12,7 +12,7 @@ export const Portfolio: FC = () => {
       <Space h={20} />
       <Grid>
         {portfolioData.map((portfolio) => (
-          <Grid.Col sm={3} md={4} key={portfolio.id}>
+          <Grid.Col sm={12} md={4} key={portfolio.id}>
             <PortfolioContent {...portfolio} />
           </Grid.Col>
         ))}
