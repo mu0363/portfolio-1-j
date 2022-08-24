@@ -1,17 +1,32 @@
-import { Container, Footer, Grid, Group, Space, Text } from "@mantine/core";
+import { Button, Center, Container, Grid, Space } from "@mantine/core";
+import { NextLink } from "@mantine/next";
 import { GitHub } from "./GitHub";
 import { Hero } from "./Hero";
 import { Twitter } from "./Twitter";
 import type { FC } from "react";
+import { ContentType } from "src/pages";
 import { Blog } from "src/pages-component/blog";
 import { Portfolio } from "src/pages-component/portfolio";
 
 /** @package */
-export const Index: FC = () => {
+export const Index: FC<{ contents: ContentType[] }> = ({ contents }) => {
   return (
     <>
       <Hero />
-      <Blog />
+      <Blog contents={contents} />
+      <Center>
+        <NextLink href="/blog">
+          <Button
+            radius="xl"
+            sx={(theme) => ({
+              background: theme.colorScheme === "dark" ? theme.colors.gray[7] : "black",
+            })}
+          >
+            View All
+          </Button>
+        </NextLink>
+      </Center>
+      <Space h={60} />
       <Portfolio />
       <Container>
         <Grid>
@@ -24,11 +39,6 @@ export const Index: FC = () => {
         </Grid>
       </Container>
       <Space h={75} />
-      <Footer height={70} p="xl" sx={{ position: "absolute", bottom: "0px" }}>
-        <Group position="center">
-          <Text>© 2022 Shimabu IT University</Text>
-        </Group>
-      </Footer>
     </>
   );
 };
