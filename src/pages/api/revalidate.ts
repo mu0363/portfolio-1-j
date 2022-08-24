@@ -6,10 +6,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(401).json({ message: "Invalid token" });
   }
 
-  const path = req.query.path as string;
+  const query = req.query;
+  const id = query.id ? ["", ...(query.id as string[])].join("/") : null;
+
+  if (!id) {
+    return res.status(404).json({
+      message: "revalidate target not found",
+    });
+  }
 
   try {
-    await res.revalidate(path);
+    await res.revalidate("/");
+    await res.revalidate("/blog");
+    await res.revalidate(`/blog${id}`);
+    await res.revalidate(`/blog/${id}`);
+    await res.revalidate(id);
     return res.json({ revalidated: true });
   } catch (err) {
     // If there was an error, Next.js will continue
