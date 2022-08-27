@@ -5,7 +5,7 @@ import { blogState } from "src/libs/atoms";
 import { portfolioState } from "src/libs/atoms/portfolioState";
 
 /* @package **/
-export const useSetAllData = (props: MicroCMSProps) => {
+export const useSetAllData = (props: MicroCMSProps): void => {
   const setBlogData = useSetRecoilState(blogState);
   const setPortfolioData = useSetRecoilState(portfolioState);
 
