@@ -19,7 +19,7 @@ import { IconMoon, IconSun } from "@tabler/icons";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect } from "react";
-import { getPath } from "src/lib/const";
+import { getPath } from "src/libs/const";
 
 const useStyles = createStyles((theme) => ({
   closeButton: {

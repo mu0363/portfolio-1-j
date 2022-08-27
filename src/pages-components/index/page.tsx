@@ -4,8 +4,8 @@ import { GitHub } from "./GitHub";
 import { Hero } from "./Hero";
 import { Twitter } from "./Twitter";
 import type { FC } from "react";
-import { Blog } from "src/pages-component/blog";
-import { Portfolio } from "src/pages-component/portfolio";
+import { Blog } from "src/pages-components/blog";
+import { Portfolio } from "src/pages-components/portfolio";
 
 /** @package */
 export const Index: FC = () => {

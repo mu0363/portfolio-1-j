@@ -2,7 +2,7 @@ import { Space, Stack, Text } from "@mantine/core";
 import { format } from "date-fns";
 import Link from "next/link";
 import type { FC } from "react";
-import { BlogType } from "src/lib/atom/blogState";
+import type { BlogType } from "src/libs/types";
 
 /** @package */
 export const BlogContent: FC<BlogType> = (props) => {

@@ -1,6 +1,6 @@
 import { Container, Space, Text } from "@mantine/core";
 import type { FC } from "react";
-import { SectionTitle } from "src/component/SectionTitle";
+import { SectionTitle } from "src/components/SectionTitle";
 
 /** @package */
 export const About: FC = () => {

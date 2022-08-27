@@ -1,9 +1,9 @@
 import { Container, Space } from "@mantine/core";
 import { useRecoilValue } from "recoil";
 import type { FC } from "react";
-import { SectionTitle } from "src/component/SectionTitle";
-import { blogState } from "src/lib/atom";
-import { BlogContent } from "src/pages-component/blog/BlogContent";
+import { SectionTitle } from "src/components/SectionTitle";
+import { blogState } from "src/libs/atoms";
+import { BlogContent } from "src/pages-components/blog/BlogContent";
 
 /** @package */
 export const Blog: FC = () => {

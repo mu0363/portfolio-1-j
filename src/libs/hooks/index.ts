@@ -1,0 +1,1 @@
+export { useSetAllData } from "./useSetAllData";

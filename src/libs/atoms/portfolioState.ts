@@ -1,21 +1,5 @@
 import { atom } from "recoil";
-
-export type ThumbnailType = {
-  height: number;
-  url: string;
-  width: number;
-};
-
-export type PortfolioType = {
-  id: string;
-  title: string;
-  body: string;
-  createdAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  thumbnail: ThumbnailType;
-  updatedAt: string;
-};
+import type { PortfolioType } from "src/libs/types";
 
 export const portfolioState = atom<PortfolioType[]>({
   key: "portfolioState",

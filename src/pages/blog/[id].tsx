@@ -1,13 +1,9 @@
 import { Container, Text } from "@mantine/core";
 import { format } from "date-fns";
-import { MicroCMSContentId, MicroCMSDate } from "microcms-js-sdk";
 import type { NextPage, GetStaticPaths, GetStaticProps } from "next";
-
-import type { BlogType } from "src/lib/atom/blogState";
-import { SectionTitle } from "src/component/SectionTitle";
-import { client } from "src/lib/micro-cms/client";
-
-type ContentType = BlogType & MicroCMSContentId & MicroCMSDate;
+import type { BlogType, ContentType } from "src/libs/types";
+import { SectionTitle } from "src/components/SectionTitle";
+import { client } from "src/libs/micro-cms/client";
 
 const BlogId: NextPage<ContentType> = (props) => {
   const { title, body, publishedAt } = props;

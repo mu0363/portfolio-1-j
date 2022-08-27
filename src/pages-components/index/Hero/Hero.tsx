@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Group, MediaQuery, Stack, Text } from "@mantine/core";
 import type { FC, ReactNode } from "react";
-import { TwitterIcon, FacebookIcon, RSSIcon } from "src/component/SVG";
+import { TwitterIcon, FacebookIcon, RSSIcon } from "src/components/SVG";
 
 /** @package */
 export const Hero: FC = () => {

@@ -2,13 +2,8 @@ import { Button, Center, Container, Space, Stack, Textarea, TextInput, createSty
 import { useForm, zodResolver } from "@mantine/form";
 import { z } from "zod";
 import type { FC } from "react";
-import { SectionTitle } from "src/component/SectionTitle";
-
-type ContactForm = {
-  name: string;
-  email: string;
-  message: string;
-};
+import type { ContactForm } from "src/libs/types";
+import { SectionTitle } from "src/components/SectionTitle";
 
 const useStyles = createStyles((_theme) => ({
   error: {

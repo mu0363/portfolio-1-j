@@ -1,14 +1,5 @@
 import { atom } from "recoil";
-
-export type BlogType = {
-  id: string;
-  title: string;
-  body: string;
-  createdAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  updatedAt: string;
-};
+import type { BlogType } from "src/libs/types";
 
 export const blogState = atom<BlogType[]>({
   key: "blogState",
