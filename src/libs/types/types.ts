@@ -1,5 +1,11 @@
 import { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
 
+type ThumbnailType = {
+  height: number;
+  url: string;
+  width: number;
+};
+
 export type BlogType = {
   id: string;
   title: string;
@@ -10,21 +16,8 @@ export type BlogType = {
   updatedAt: string;
 };
 
-type ThumbnailType = {
-  height: number;
-  url: string;
-  width: number;
-};
-
-export type PortfolioType = {
-  id: string;
-  title: string;
-  body: string;
-  createdAt: string;
-  publishedAt: string;
-  revisedAt: string;
+export type PortfolioType = BlogType & {
   thumbnail: ThumbnailType;
-  updatedAt: string;
 };
 
 export type MicroCMSProps = {

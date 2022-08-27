@@ -1,9 +1,25 @@
-import { NextPage } from "next";
-import React from "react";
+import { Container, Space } from "@mantine/core";
+import { MicroCMSListResponse } from "microcms-js-sdk";
+import type { GetStaticProps, NextPage } from "next";
+import type { PortfolioType } from "src/libs/types";
+import { client } from "src/libs/micro-cms/client";
 import { Portfolio } from "src/pages-components/portfolio";
 
-const PortfolioPage: NextPage = () => {
-  return <Portfolio />;
+const PortfolioPage: NextPage<MicroCMSListResponse<PortfolioType>> = (props) => {
+  return (
+    <Container>
+      <Portfolio portfolioArray={props.contents} />
+      <Space h={60} />
+    </Container>
+  );
 };
 
 export default PortfolioPage;
+
+export const getStaticProps: GetStaticProps<MicroCMSListResponse<PortfolioType>> = async () => {
+  const portfolioData = await client.getList<PortfolioType>({ endpoint: "portfolio" });
+
+  return {
+    props: portfolioData,
+  };
+};

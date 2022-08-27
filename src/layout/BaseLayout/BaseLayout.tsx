@@ -16,7 +16,7 @@ export const BaseLayout: FC<{ children: ReactNode }> = ({ children }) => {
         header={<Header />}
       >
         <LayoutErrorBoundary>{children}</LayoutErrorBoundary>
-
+        {/* FIXME: コンタクトページでFooterが隠れる*/}
         <Footer height={70} p="xl" sx={{ position: "sticky", top: "100%" }}>
           <Group position="center">
             <Text>© 2022 Shimabu IT University</Text>
