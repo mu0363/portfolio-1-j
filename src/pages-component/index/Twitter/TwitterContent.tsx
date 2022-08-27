@@ -4,17 +4,17 @@ import type { FC } from "react";
 
 type TwitterType = {
   id: number;
-  accountName: string;
-  accountId: string;
-  avatar: string;
   title: string;
+  accountId: string;
+  accountName: string;
+  avatar: string;
   content: string;
   date: string;
 };
 
 /** @package */
 export const TwitterContent: FC<TwitterType> = (props) => {
-  const { accountName, accountId, avatar, title, content, date } = props;
+  const { title, accountId, accountName, avatar, content, date } = props;
   return (
     <Stack spacing={5}>
       <Group>

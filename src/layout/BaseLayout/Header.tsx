@@ -22,14 +22,14 @@ import { FC, useEffect } from "react";
 import { getPath } from "src/lib/const";
 
 const useStyles = createStyles((theme) => ({
-  drawer: {
-    background: theme.colorScheme === "dark" ? "black" : theme.colors.pink[6],
-    color: "white",
-  },
   closeButton: {
     color: "white",
     display: "flex",
     justifyContent: "flex-start",
+  },
+  drawer: {
+    background: theme.colorScheme === "dark" ? "black" : theme.colors.pink[6],
+    color: "white",
   },
 }));
 
@@ -59,8 +59,8 @@ export const Header: FC = () => {
         size="xl"
         withCloseButton={false}
         classNames={{
-          drawer: classes.drawer,
           closeButton: classes.closeButton,
+          drawer: classes.drawer,
         }}
       >
         <CloseButton
@@ -69,12 +69,12 @@ export const Header: FC = () => {
           variant="transparent"
           onClick={handlers.close}
           sx={{
-            position: "relative",
-            zIndex: 999,
-            right: 12,
-            color: "white",
             "&:not(:disabled):active": { transform: "none" },
+            color: "white",
             outline: "none",
+            position: "relative",
+            right: 12,
+            zIndex: 999,
           }}
         />
         <Space h={25} />
@@ -86,7 +86,7 @@ export const Header: FC = () => {
         </Stack>
       </Drawer>
       <Mantine height={70}>
-        <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
+        <div style={{ alignItems: "center", display: "flex", height: "100%" }}>
           <MediaQuery largerThan="sm" styles={{ display: "none" }}>
             <Burger opened={opened} onClick={handlers.open} size="sm" ml={10} />
           </MediaQuery>
@@ -102,10 +102,10 @@ export const Header: FC = () => {
                     weight={700}
                     ml={10}
                     sx={{
-                      cursor: "pointer",
                       "@media (max-width: 768px)": {
                         margin: "auto",
                       },
+                      cursor: "pointer",
                     }}
                   >
                     John Doe Profile

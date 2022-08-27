@@ -5,15 +5,15 @@ import type { FC } from "react";
 type GitHubType = {
   id: number;
   title: string;
-  subtitle: string;
-  star: number;
   fork: number;
-  ratio: { Typescript: number; Javascript: number; Other: number };
+  ratio: { Javascript: number; Other: number; Typescript: number };
+  star: number;
+  subtitle: string;
 };
 
 /** @package */
 export const GitHubContent: FC<GitHubType> = (props) => {
-  const { title, subtitle, star, fork, ratio } = props;
+  const { title, fork, ratio, star, subtitle } = props;
   return (
     <Stack spacing={5}>
       <Text size="xl" weight={500}>
@@ -45,9 +45,9 @@ export const GitHubContent: FC<GitHubType> = (props) => {
         size="md"
         radius="xl"
         sections={[
-          { value: ratio.Typescript, color: "blue" },
-          { value: ratio.Javascript, color: "yellow" },
-          { value: ratio.Other, color: "grey" },
+          { color: "blue", value: ratio.Typescript },
+          { color: "yellow", value: ratio.Javascript },
+          { color: "grey", value: ratio.Other },
         ]}
       />
 

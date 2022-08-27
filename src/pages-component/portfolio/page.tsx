@@ -1,11 +1,14 @@
 import { Button, Center, Container, Grid, Space } from "@mantine/core";
+import { useRecoilValue } from "recoil";
 import { PortfolioContent } from "./PortfolioContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
-import { portfolioData } from "src/lib/const";
+import { portfolioState } from "src/lib/atom/portfolioState";
 
 /** @package */
 export const Portfolio: FC = () => {
+  const portfolioData = useRecoilValue(portfolioState);
+
   return (
     <Container>
       <SectionTitle title="Portfolio" />

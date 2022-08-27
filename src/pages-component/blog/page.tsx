@@ -1,19 +1,20 @@
 import { Container, Space } from "@mantine/core";
-import { BlogContent } from "./BlogContent";
+import { useRecoilValue } from "recoil";
 import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
-import { ContentType } from "src/pages/blog";
+import { blogState } from "src/lib/atom";
+import { BlogContent } from "src/pages-component/blog/BlogContent";
 
 /** @package */
-export const Blog: FC<{ contents: ContentType[] }> = ({ contents }) => {
+export const Blog: FC = () => {
+  const blogData = useRecoilValue(blogState);
+
   return (
     <Container>
       <SectionTitle title="Blog" />
       <Space h={20} />
-      {contents.map((blog) => (
-        <div key={blog.id}>
-          <BlogContent {...blog} />
-        </div>
+      {blogData.map((blog) => (
+        <BlogContent key={blog.id} {...blog} />
       ))}
     </Container>
   );

@@ -1,27 +1,37 @@
-import type { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
+import { useEffect } from "react";
+import { useSetRecoilState } from "recoil";
+import type { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
+import { blogState } from "src/lib/atom";
+import { BlogType } from "src/lib/atom/blogState";
+import { portfolioState, PortfolioType } from "src/lib/atom/portfolioState";
 import { client } from "src/lib/micro-cms/client";
 import { Index } from "src/pages-component/index";
 
-export type BlogType = {
-  title: string;
-  body: string;
+export type MicroCMSProps = {
+  blogData: MicroCMSListResponse<BlogType>;
+  portfolioData: MicroCMSListResponse<PortfolioType>;
 };
 
-export type MicroCMSProps = MicroCMSListResponse<BlogType>;
-export type ContentType = BlogType & MicroCMSContentId & MicroCMSDate;
-
 const IndexPage: NextPage<MicroCMSProps> = (props) => {
-  return <Index contents={props.contents} />;
+  const setBlogData = useSetRecoilState(blogState);
+  const setPortfolioData = useSetRecoilState(portfolioState);
+
+  useEffect(() => {
+    setBlogData(props.blogData.contents);
+    setPortfolioData(props.portfolioData.contents);
+  }, [props.blogData.contents, props.portfolioData.contents, setBlogData, setPortfolioData]);
+
+  return <Index />;
 };
 
 export default IndexPage;
 
-// FIXME: 5件のみ取得
 export const getStaticProps: GetStaticProps<MicroCMSProps> = async () => {
-  const data = await client.getList<BlogType>({ endpoint: "blog", queries: { limit: 3 } });
+  const blogData = await client.getList<BlogType>({ endpoint: "blog" });
+  const portfolioData = await client.getList<PortfolioType>({ endpoint: "portfolio" });
 
   return {
-    props: data,
+    props: { blogData, portfolioData },
   };
 };

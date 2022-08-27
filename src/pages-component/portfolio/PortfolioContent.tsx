@@ -1,26 +1,19 @@
 import { Space, Text } from "@mantine/core";
-import { format, parseISO } from "date-fns";
+import { format } from "date-fns";
 import Image from "next/image";
 import type { FC } from "react";
-
-type PortfolioType = {
-  id: number;
-  image: string;
-  title: string;
-  description: string;
-  date: string;
-};
+import { PortfolioType } from "src/lib/atom/portfolioState";
 
 /** @package */
 export const PortfolioContent: FC<PortfolioType> = (props) => {
-  const { image, title, description, date } = props;
+  const { title, body, publishedAt, thumbnail } = props;
   return (
     <>
-      <Image src={image} alt={title} width={1280} height={720} layout="responsive" objectFit="cover" priority />
+      <Image src={thumbnail.url} alt={title} width={1280} height={720} layout="responsive" objectFit="cover" priority />
       <Text size="xl" weight={500}>
         {title}
       </Text>
-      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{description}</Text>
+      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{body}</Text>
       <Text
         size="sm"
         weight={700}
@@ -28,7 +21,7 @@ export const PortfolioContent: FC<PortfolioType> = (props) => {
           color: theme.colorScheme === "dark" ? theme.colors.gray[7] : "gray",
         })}
       >
-        {format(parseISO(date), "yyyy.MM.dd")}
+        {format(new Date(publishedAt), "yyyy.MM.dd")}
       </Text>
       <Space h="lg" />
     </>

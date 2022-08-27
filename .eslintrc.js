@@ -13,8 +13,8 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ["*.ts", "*.tsx"], // Your TypeScript files extension
       extends: ["plugin:@typescript-eslint/recommended-requiring-type-checking"],
+      files: ["*.ts", "*.tsx"], // Your TypeScript files extension
       parserOptions: { project: ["./tsconfig.json"] }, // Specify it only for TypeScript files
     },
   ],
@@ -24,71 +24,89 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module",
   },
-  settings: {
-    react: { version: "detect" },
-    "import/resolver": {
-      typescript: {},
-      node: { extensions: [".ts"] },
-    },
-  },
-  plugins: ["react", "@typescript-eslint", "import", "unused-imports", "import-access"],
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "import",
+    "unused-imports",
+    "import-access",
+    // "react-hooks",
+    "sort-keys-custom-order",
+  ],
   rules: {
-    "require-jsdoc": "off",
-    "sort-imports": 0,
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { format: ["PascalCase"], selector: "typeAlias" },
+      {
+        filter: {
+          match: false,
+          regex: "opened",
+        },
+        format: ["PascalCase"],
+        prefix: ["is", "should", "has"],
+        selector: "variable",
+        types: ["boolean"],
+      },
+    ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         argsIgnorePattern: "^_",
-        varsIgnorePattern: "^_",
         caughtErrorsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
-    "@typescript-eslint/naming-convention": [
-      "error",
-      { selector: "typeAlias", format: ["PascalCase"] },
-      {
-        selector: "variable",
-        types: ["boolean"],
-        format: ["PascalCase"],
-        prefix: ["is", "should", "has"],
-        filter: {
-          regex: "opened",
-          match: false,
-        },
-      },
-    ],
-    "unused-imports/no-unused-imports": "warn",
     "func-style": ["error", "declaration", { allowArrowFunctions: true }],
-    "no-console": ["error", { allow: ["warn", "info", "error"] }],
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "import/named": "off",
-    "react/jsx-handler-names": [
-      "error",
-      {
-        eventHandlerPrefix: "handle",
-        eventHandlerPropPrefix: false,
-        checkLocalVariables: true,
-        checkInlineFunction: true,
-      },
-    ],
     "import-access/jsdoc": ["error"],
+    "import/named": "off",
     "import/order": [
       "error",
       {
-        groups: ["builtin", "external", "parent", "sibling", "index", "object", "type"],
-        pathGroups: [
-          {
-            pattern: "@alias/**",
-            group: "parent",
-            position: "before",
-          },
-        ],
         alphabetize: {
           order: "asc",
         },
+        groups: ["builtin", "external", "parent", "sibling", "index", "object", "type"],
+        pathGroups: [
+          {
+            group: "parent",
+            pattern: "@alias/**",
+            position: "before",
+          },
+        ],
       },
     ],
+    "no-console": ["error", { allow: ["warn", "info", "error"] }],
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        additionalHooks: "(useRecoilCallback|useRecoilTransaction_UNSTABLE)",
+      },
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react/jsx-handler-names": [
+      "error",
+      {
+        checkInlineFunction: true,
+        checkLocalVariables: true,
+        eventHandlerPrefix: "handle",
+        eventHandlerPropPrefix: false,
+      },
+    ],
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "require-jsdoc": "off",
+    // For JS objects sorting
+    "sort-keys-custom-order/object-keys": ["error", { orderedKeys: ["id", "name", "title", "key"] }],
+    // For TS types sorting
+    "sort-keys-custom-order/type-keys": ["error", { orderedKeys: ["id", "name", "title"] }],
+    "unused-imports/no-unused-imports": "warn",
+  },
+  settings: {
+    "import/resolver": {
+      node: { extensions: [".ts"] },
+      typescript: {},
+    },
+    react: { version: "detect" },
   },
 };

@@ -9,7 +9,7 @@ export const Hero: FC = () => {
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.pink[6],
       })}
-      style={{ height: 248, display: "flex", alignItems: "center" }}
+      style={{ alignItems: "center", display: "flex", height: 248 }}
     >
       <Container style={{ flex: 1 }}>
         <Grid>
@@ -23,13 +23,13 @@ export const Hero: FC = () => {
               </HeroText>
             </Stack>
           </Grid.Col>
-          <MediaQuery largerThan="sm" styles={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+          <MediaQuery largerThan="sm" styles={{ alignItems: "center", display: "flex", justifyContent: "flex-end" }}>
             <Grid.Col sm={12} md={6} p={0}>
               <Group
                 sx={{
                   "@media (max-width: 768px)": {
-                    marginTop: "20px",
                     marginLeft: "10px",
+                    marginTop: "20px",
                   },
                 }}
               >
@@ -45,10 +45,10 @@ export const Hero: FC = () => {
   );
 };
 
-const HeroText: FC<{ defaultSize: number; mobileSize: number; children: ReactNode }> = ({
+const HeroText: FC<{ children: ReactNode; defaultSize: number; mobileSize: number }> = ({
+  children,
   defaultSize,
   mobileSize,
-  children,
 }) => {
   return (
     <MediaQuery largerThan="sm" styles={{ fontSize: defaultSize }}>

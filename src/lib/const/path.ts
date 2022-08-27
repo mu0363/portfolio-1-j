@@ -1,9 +1,9 @@
 const PATH = {
-  INDEX: "/",
   ABOUT: "/about",
   BLOG: "/blog",
-  PORTFOLIO: "/portfolio",
   CONTACT: "/contact",
+  INDEX: "/",
+  PORTFOLIO: "/portfolio",
 };
 
 // TODO Dynamic routes時の処理を追加

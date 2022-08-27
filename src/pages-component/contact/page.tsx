@@ -5,8 +5,8 @@ import type { FC } from "react";
 import { SectionTitle } from "src/component/SectionTitle";
 
 type ContactForm = {
-  email: string;
   name: string;
+  email: string;
   message: string;
 };
 
@@ -17,8 +17,8 @@ const useStyles = createStyles((_theme) => ({
 }));
 
 const schema = z.object({
-  email: z.string().email({ message: "有効なアドレスを入力してください。" }),
   name: z.string().min(2, { message: "2文字以上でお願いします。" }),
+  email: z.string().email({ message: "有効なアドレスを入力してください。" }),
   message: z
     .string()
     .min(5, { message: "メッセージが短すぎます。" })
@@ -29,18 +29,18 @@ const schema = z.object({
 export const Contact: FC = () => {
   const { classes } = useStyles();
   const form = useForm<ContactForm>({
-    validate: zodResolver(schema),
     initialValues: {
-      email: "",
       name: "",
+      email: "",
       message: "",
     },
+    validate: zodResolver(schema),
   });
 
   const handleSubmit = () => {
     const formData: ContactForm = {
-      email: form.values.email,
       name: form.values.name,
+      email: form.values.email,
       message: form.values.message,
     };
     // TODO データ送信実装する

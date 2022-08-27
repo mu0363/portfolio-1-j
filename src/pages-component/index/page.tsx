@@ -4,16 +4,15 @@ import { GitHub } from "./GitHub";
 import { Hero } from "./Hero";
 import { Twitter } from "./Twitter";
 import type { FC } from "react";
-import { ContentType } from "src/pages";
 import { Blog } from "src/pages-component/blog";
 import { Portfolio } from "src/pages-component/portfolio";
 
 /** @package */
-export const Index: FC<{ contents: ContentType[] }> = ({ contents }) => {
+export const Index: FC = () => {
   return (
     <>
       <Hero />
-      <Blog contents={contents} />
+      <Blog />
       <Center>
         <NextLink href="/blog">
           <Button

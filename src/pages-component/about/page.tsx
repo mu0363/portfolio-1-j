@@ -5,7 +5,7 @@ import { SectionTitle } from "src/component/SectionTitle";
 /** @package */
 export const About: FC = () => {
   return (
-    <Container style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <Container style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <SectionTitle title="About" />
       <Space h={20} />
       <Text size="xl" weight={700}>
