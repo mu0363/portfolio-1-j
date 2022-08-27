@@ -1,10 +1,10 @@
 import { AppShell, Footer, Group, Text } from "@mantine/core";
 import { Header } from "./Header";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
 import { LayoutErrorBoundary } from "src/layout/BaseLayout/LayoutErrorBoundary";
 
 /** @package */
-export const BaseLayout: FC = ({ children }) => {
+export const BaseLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
       <AppShell

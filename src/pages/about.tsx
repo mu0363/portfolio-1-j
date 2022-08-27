@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { About } from "src/pages-component/about";
+import { About } from "src/pages-components/about";
 
 const AboutPage: NextPage = () => {
   return <About />;

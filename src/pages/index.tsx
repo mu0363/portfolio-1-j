@@ -1,27 +1,22 @@
-import type { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
-import { client } from "src/lib/micro-cms/client";
-import { Index } from "src/pages-component/index";
-
-export type BlogType = {
-  title: string;
-  body: string;
-};
-
-export type MicroCMSProps = MicroCMSListResponse<BlogType>;
-export type ContentType = BlogType & MicroCMSContentId & MicroCMSDate;
+import type { BlogType, MicroCMSProps, PortfolioType } from "src/libs/types";
+import { useSetAllData } from "src/libs/hooks";
+import { client } from "src/libs/micro-cms/client";
+import { Index } from "src/pages-components/index";
 
 const IndexPage: NextPage<MicroCMSProps> = (props) => {
-  return <Index contents={props.contents} />;
+  useSetAllData(props);
+
+  return <Index />;
 };
 
 export default IndexPage;
 
-// FIXME: 5件のみ取得
 export const getStaticProps: GetStaticProps<MicroCMSProps> = async () => {
-  const data = await client.getList<BlogType>({ endpoint: "blog", queries: { limit: 3 } });
+  const blogData = await client.getList<BlogType>({ endpoint: "blog" });
+  const portfolioData = await client.getList<PortfolioType>({ endpoint: "portfolio" });
 
   return {
-    props: data,
+    props: { blogData, portfolioData },
   };
 };
