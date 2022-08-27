@@ -8,7 +8,6 @@ import type { BlogType } from "src/libs/types";
 export const BlogContent: FC<BlogType> = (props) => {
   const { id, title, body, publishedAt } = props;
 
-  // FIXME: ダークテーマのスタイルを当てる
   return (
     <Stack spacing={5}>
       <Link href={`/blog/${id}`} passHref>
@@ -16,7 +15,9 @@ export const BlogContent: FC<BlogType> = (props) => {
           {title}
         </Text>
       </Link>
-      <Text dangerouslySetInnerHTML={{ __html: body }} lineClamp={2} />
+      <Text lineClamp={2}>{body}</Text>
+      {/*FIXME: ダークテーマのスタイルを当てる */}
+      {/* <Text dangerouslySetInnerHTML={{ __html: body }} lineClamp={2} /> */}
       <Text
         size="sm"
         weight={700}

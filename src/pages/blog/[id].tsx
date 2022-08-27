@@ -8,12 +8,13 @@ import { client } from "src/libs/micro-cms/client";
 const BlogId: NextPage<ContentType> = (props) => {
   const { title, body, publishedAt } = props;
 
-  // FIXME: ダークテーマのスタイルを当てる
   return (
     <Container>
       <SectionTitle title={title} />
       <Text component="time"> {format(new Date(publishedAt), "yyyy.MM.dd")}</Text>
-      <Text dangerouslySetInnerHTML={{ __html: body }} />
+      <Text>{body}</Text>
+      {/*FIXME: ダークテーマのスタイルを当てる */}
+      {/* <Text dangerouslySetInnerHTML={{ __html: body }} /> */}
     </Container>
   );
 };

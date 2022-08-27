@@ -10,10 +10,12 @@ export const PortfolioContent: FC<PortfolioType> = (props) => {
   return (
     <>
       <Image src={thumbnail.url} alt={title} width={1280} height={720} layout="responsive" objectFit="cover" priority />
-      <Text size="xl" weight={500}>
+      <Text size="xl" lineClamp={1} weight={500}>
         {title}
       </Text>
-      <Text sx={{ maxHeight: 55, overflow: "hidden" }}>{body}</Text>
+      <Text lineClamp={2} sx={{ maxHeight: 55, overflow: "hidden" }}>
+        {body}
+      </Text>
       <Text
         size="sm"
         weight={700}

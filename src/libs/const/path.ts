@@ -1,4 +1,4 @@
-const PATH = {
+export const PATH = {
   ABOUT: "/about",
   BLOG: "/blog",
   CONTACT: "/contact",
