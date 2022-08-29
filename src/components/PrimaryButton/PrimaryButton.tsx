@@ -8,6 +8,7 @@ type PrimaryButtonType = {
   text: string;
 };
 
+/** @package */
 export const PrimaryButton: FC<PrimaryButtonType> = ({ href, text }) => {
   return (
     <Center>
