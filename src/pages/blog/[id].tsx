@@ -23,7 +23,7 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const data = await client.getList<BlogType>({ endpoint: "blog" });
   const ids = data.contents.map((content) => `/blog/${content.id}`);
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: ids,
   };
 };

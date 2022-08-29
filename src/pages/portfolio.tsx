@@ -1,4 +1,4 @@
-import { Container, Space } from "@mantine/core";
+import { Space } from "@mantine/core";
 import { MicroCMSListResponse } from "microcms-js-sdk";
 import type { GetStaticProps, NextPage } from "next";
 import type { PortfolioType } from "src/libs/types";
@@ -7,10 +7,10 @@ import { Portfolio } from "src/pages-components/portfolio";
 
 const PortfolioPage: NextPage<MicroCMSListResponse<PortfolioType>> = (props) => {
   return (
-    <Container>
+    <>
       <Portfolio portfolioArray={props.contents} />
       <Space h={60} />
-    </Container>
+    </>
   );
 };
 

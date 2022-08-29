@@ -1,7 +1,7 @@
 import { Container, Grid, Space } from "@mantine/core";
 import type { GetStaticProps, NextPage } from "next";
 import type { BlogType, MicroCMSProps, PortfolioType } from "src/libs/types";
-import { PrimaryButton } from "src/components/PrimaryButton/PrimaryButton";
+import { PrimaryButton } from "src/components/PrimaryButton";
 import { client } from "src/libs/micro-cms/client";
 import { Blog } from "src/pages-components/blog";
 import { Hero, GitHub, Twitter } from "src/pages-components/index";
