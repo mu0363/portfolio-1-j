@@ -1,13 +1,14 @@
-import { Container, Grid, Space } from "@mantine/core";
+import { Grid, Space } from "@mantine/core";
 import { PortfolioContent } from "./PortfolioContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/components/SectionTitle";
+import { PageContainer } from "src/layout/PageContainer";
 import { PortfolioType } from "src/libs/types";
 
 /** @package */
 export const Portfolio: FC<{ portfolioArray: PortfolioType[] }> = ({ portfolioArray }) => {
   return (
-    <Container>
+    <PageContainer>
       <SectionTitle title="Portfolio" />
       <Space h={20} />
       <Grid>
@@ -18,6 +19,6 @@ export const Portfolio: FC<{ portfolioArray: PortfolioType[] }> = ({ portfolioAr
         ))}
       </Grid>
       <Space h={20} />
-    </Container>
+    </PageContainer>
   );
 };

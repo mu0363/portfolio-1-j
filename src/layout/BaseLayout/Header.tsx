@@ -130,7 +130,6 @@ export const Header: FC = () => {
           </Box>
         </div>
       </Mantine>
-      <Space h={70} />
     </div>
   );
 };

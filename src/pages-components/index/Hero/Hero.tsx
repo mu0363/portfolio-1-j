@@ -6,6 +6,7 @@ import { TwitterIcon, FacebookIcon, RSSIcon } from "src/components/SVG";
 export const Hero: FC = () => {
   return (
     <Box
+      mt={70}
       sx={(theme) => ({
         backgroundColor: theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.pink[6],
       })}
