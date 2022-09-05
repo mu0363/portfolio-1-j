@@ -1,5 +1,6 @@
 import { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
 
+// microCMS
 type ThumbnailType = {
   height: number;
   url: string;
@@ -20,9 +21,29 @@ export type PortfolioType = BlogType & {
   thumbnail: ThumbnailType;
 };
 
-export type MicroCMSProps = {
+// Twitter
+export type TwitterProfileType = {
+  id: string;
+  name: string;
+  profile_image_url: string;
+  username: string;
+};
+
+export type TweetType = {
+  id: string;
+  created_at: string;
+  text: string;
+};
+
+export type TwitterType = {
+  profile: TwitterProfileType;
+  tweets: TweetType[];
+};
+
+export type IndexProps = {
   blogData: MicroCMSListResponse<BlogType>;
   portfolioData: MicroCMSListResponse<PortfolioType>;
+  twitterData: TwitterType;
 };
 
 export type ContentType = BlogType & MicroCMSContentId & MicroCMSDate;

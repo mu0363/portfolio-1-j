@@ -1,1 +1,1 @@
-export type { BlogType, PortfolioType, MicroCMSProps, ContentType, ContactForm } from "./types";
+export type { BlogType, PortfolioType, IndexProps, TwitterType, ContentType, ContactForm } from "./types";

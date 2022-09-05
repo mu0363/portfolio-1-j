@@ -5,8 +5,12 @@ import { SectionTitle } from "src/components/SectionTitle";
 import { PageContainer } from "src/layout/PageContainer";
 import { PortfolioType } from "src/libs/types";
 
+type Props = {
+  portfolioArray: PortfolioType[];
+};
+
 /** @package */
-export const Portfolio: FC<{ portfolioArray: PortfolioType[] }> = ({ portfolioArray }) => {
+export const Portfolio: FC<Props> = ({ portfolioArray }) => {
   return (
     <PageContainer>
       <SectionTitle title="Portfolio" />
