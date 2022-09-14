@@ -1,24 +1,20 @@
 import { Avatar, Group, Space, Stack, Text } from "@mantine/core";
 import { format, parseISO } from "date-fns";
 import type { FC } from "react";
-import { TweetType, TwitterProfileType } from "src/libs/types/types";
-
-type TweetContentType = {
-  profile: TwitterProfileType;
-  tweet: TweetType;
-};
+import { TwitterType } from "src/libs/types/types";
 
 /** @package */
-export const TwitterContent: FC<TweetContentType> = (props) => {
-  const { profile, tweet } = props;
+export const TwitterContent: FC<TwitterType> = (props) => {
+  const { profile_image_url, name, tweet, created_at } = props;
+  // FIXME: レイアウト直したい、取得件数制限したい
   return (
     <Stack spacing={5}>
       <Group>
-        <Avatar src={profile.profile_image_url} radius="xl" alt="it's me" />
+        <Avatar src={profile_image_url} radius="xl" alt="it's me" />
         <Stack spacing={0}>
           <Group>
             <Text size="md" weight={500}>
-              {profile.name}
+              {name}
             </Text>
             <Text
               size="sm"
@@ -27,15 +23,12 @@ export const TwitterContent: FC<TweetContentType> = (props) => {
                 color: theme.colorScheme === "dark" ? theme.colors.dark[5] : "grey",
               })}
             >
-              {`@${profile.name}・${format(parseISO(tweet.created_at), "MM月dd日")}`}
+              {`@${name}・${format(parseISO(created_at), "MM月dd日")}`}
             </Text>
           </Group>
-          {/** FIXME: タイトル入れる? */}
-          <Text size="sm">{tweet.id}</Text>
+          <Text size="sm">{tweet}</Text>
         </Stack>
       </Group>
-      <Space h={20} />
-      <Text size="sm">{tweet.text}</Text>
       <Space h={40} />
     </Stack>
   );

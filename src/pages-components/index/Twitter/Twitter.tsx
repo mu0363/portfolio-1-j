@@ -5,14 +5,14 @@ import { SectionTitle } from "src/components/SectionTitle";
 import { TwitterType } from "src/libs/types";
 
 /** @package */
-export const Twitter: FC<TwitterType> = (props) => {
-  const { profile, tweets } = props;
+export const Twitter: FC<{ tweets: TwitterType[] }> = (props) => {
+  const { tweets } = props;
   return (
     <Box>
       <SectionTitle title="Twitter" />
       {tweets.map((tweet) => (
         <div key={tweet.id}>
-          <TwitterContent tweet={tweet} profile={profile} />
+          <TwitterContent {...tweet} />
         </div>
       ))}
       <Center>

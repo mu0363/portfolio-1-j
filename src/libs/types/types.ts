@@ -22,10 +22,13 @@ export type PortfolioType = BlogType & {
 };
 
 // Twitter
-export type TwitterProfileType = {
+export type TwitterType = {
   id: string;
   name: string;
+  created_at: string;
   profile_image_url: string;
+  tweet: string;
+  userId: string;
   username: string;
 };
 
@@ -33,11 +36,6 @@ export type TweetType = {
   id: string;
   created_at: string;
   text: string;
-};
-
-export type TwitterType = {
-  profile: TwitterProfileType;
-  tweets: TweetType[];
 };
 
 export type IndexProps = {
