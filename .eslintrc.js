@@ -34,7 +34,8 @@ module.exports = {
     "sort-keys-custom-order",
   ],
   rules: {
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/no-namespace": "off",
+    // "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/naming-convention": [
       "error",
       { format: ["PascalCase"], selector: "typeAlias" },

@@ -1,5 +1,7 @@
 import { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
 
+type StringRecord<T extends string> = Record<T, string>;
+
 // microCMS
 type ThumbnailType = {
   height: number;
@@ -7,36 +9,19 @@ type ThumbnailType = {
   width: number;
 };
 
-export type BlogType = {
-  id: string;
-  title: string;
-  body: string;
-  createdAt: string;
-  publishedAt: string;
-  revisedAt: string;
-  updatedAt: string;
-};
+type BlogKey = "id" | "title" | "body" | "createdAt" | "publishedAt" | "revisedAt" | "updatedAt";
+export type BlogType = StringRecord<BlogKey>;
 
 export type PortfolioType = BlogType & {
   thumbnail: ThumbnailType;
 };
 
 // Twitter
-export type TwitterType = {
-  id: string;
-  name: string;
-  created_at: string;
-  profile_image_url: string;
-  tweet: string;
-  userId: string;
-  username: string;
-};
+type TwitterKey = "id" | "name" | "created_at" | "profile_image_url" | "tweet" | "userId" | "username";
+export type TwitterType = StringRecord<TwitterKey>;
 
-export type TweetType = {
-  id: string;
-  created_at: string;
-  text: string;
-};
+type TweetKey = "id" | "created_at" | "text";
+export type TweetType = StringRecord<TweetKey>;
 
 export type IndexProps = {
   blogData: MicroCMSListResponse<BlogType>;
@@ -46,8 +31,10 @@ export type IndexProps = {
 
 export type ContentType = BlogType & MicroCMSContentId & MicroCMSDate;
 
-export type ContactForm = {
+type ContactFormKey = "name" | "email" | "message";
+export type ContactForm = StringRecord<ContactFormKey>;
+
+export type User = {
+  id: string;
   name: string;
-  email: string;
-  message: string;
 };
