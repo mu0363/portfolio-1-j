@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { AppProps } from "next/app";
 import { BaseLayout } from "src/layout/BaseLayout";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
@@ -24,6 +24,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       </MantineProvider>
     </ColorSchemeProvider>
   );
-}
+};
 
 export default MyApp;

@@ -7,7 +7,7 @@ type Error = {
   detail: string | undefined;
 };
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<TwitterType[] | { error?: Error }>) {
+const handler = async (req: NextApiRequest, res: NextApiResponse<TwitterType[] | { error?: Error }>) => {
   const userId = process.env.TWITTER_USER_ID;
   const twitterResponse = await twitterClient.tweets.usersIdTweets(userId, {
     expansions: ["author_id"],
@@ -49,4 +49,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     return tweet;
   });
   res.status(200).json(tweets ?? []);
-}
+};
+
+export default handler;
