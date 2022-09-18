@@ -13,6 +13,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<TwitterType[] |
     expansions: ["author_id"],
     "tweet.fields": ["author_id", "created_at"],
     "user.fields": ["name", "profile_image_url", "username"],
+    max_results: 5,
   });
   const errors = twitterResponse.errors;
   if (errors !== undefined) {
