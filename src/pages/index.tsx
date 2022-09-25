@@ -15,8 +15,6 @@ const IndexPage: NextPage<IndexProps> = (props) => {
   const { blogData, portfolioData, githubQueryData } = props;
   const { data } = useTwitterQuery();
 
-  if (!data) return <p>Loading...</p>;
-
   return (
     <>
       <Hero />
@@ -31,9 +29,11 @@ const IndexPage: NextPage<IndexProps> = (props) => {
           <Grid.Col sm={12} md={6}>
             <GitHub githubQueryData={githubQueryData} />
           </Grid.Col>
-          <Grid.Col sm={12} md={6}>
-            <Twitter tweets={data} />
-          </Grid.Col>
+          {data && (
+            <Grid.Col sm={12} md={6}>
+              <Twitter tweets={data} />
+            </Grid.Col>
+          )}
         </Grid>
       </Container>
       <Space h={75} />
