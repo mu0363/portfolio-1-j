@@ -26030,7 +26030,7 @@ export const GetRepositoriesDocument = gql`
       isFork: false
       privacy: PUBLIC
       ownerAffiliations: [OWNER]
-      first: 100
+      last: 5
       orderBy: {field: NAME, direction: ASC}
     ) {
       nodes {
