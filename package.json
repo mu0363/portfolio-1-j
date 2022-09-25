@@ -39,11 +39,10 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@graphql-codegen/add": "^3.2.1",
     "@graphql-codegen/cli": "^2.12.1",
     "@graphql-codegen/typescript": "^2.7.3",
     "@graphql-codegen/typescript-operations": "^2.5.3",
-    "@graphql-codegen/typescript-react-apollo": "3.3.3",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.3",
     "@types/node": "17.0.23",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
