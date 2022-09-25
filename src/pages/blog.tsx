@@ -9,7 +9,7 @@ const BlogPage: NextPage<Omit<IndexProps, "twitterData">> = (props) => {
 
 export default BlogPage;
 
-export const getStaticProps: GetStaticProps<Omit<IndexProps, "twitterData">> = async () => {
+export const getStaticProps: GetStaticProps<Omit<IndexProps, "twitterData" | "githubQueryData">> = async () => {
   const blogData = await client.getList<BlogType>({ endpoint: "blog" });
   const portfolioData = await client.getList<PortfolioType>({ endpoint: "portfolio" });
 
