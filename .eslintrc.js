@@ -34,7 +34,8 @@ module.exports = {
     "sort-keys-custom-order",
   ],
   rules: {
-    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/no-namespace": "off",
+    // "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "@typescript-eslint/naming-convention": [
       "error",
       { format: ["PascalCase"], selector: "typeAlias" },
@@ -96,10 +97,8 @@ module.exports = {
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "require-jsdoc": "off",
-    // For JS objects sorting
-    "sort-keys-custom-order/object-keys": ["error", { orderedKeys: ["id", "name", "title", "key"] }],
     // For TS types sorting
-    "sort-keys-custom-order/type-keys": ["error", { orderedKeys: ["id", "name", "title"] }],
+    "sort-keys-custom-order/type-keys": ["error", { orderedKeys: ["id", "name", "title", "tweet.fields"] }],
     "unused-imports/no-unused-imports": "warn",
   },
   settings: {

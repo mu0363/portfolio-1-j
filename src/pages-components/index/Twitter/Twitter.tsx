@@ -2,16 +2,17 @@ import { Box, Button, Center } from "@mantine/core";
 import { TwitterContent } from "./TwitterContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/components/SectionTitle";
-import { twitterData } from "src/libs/const";
+import { TwitterType } from "src/libs/types";
 
 /** @package */
-export const Twitter: FC = () => {
+export const Twitter: FC<{ tweets: TwitterType[] }> = (props) => {
+  const { tweets } = props;
   return (
     <Box>
       <SectionTitle title="Twitter" />
-      {twitterData.map((twitter) => (
-        <div key={twitter.id}>
-          <TwitterContent {...twitter} />
+      {tweets.map((tweet) => (
+        <div key={tweet.id}>
+          <TwitterContent {...tweet} />
         </div>
       ))}
       <Center>
