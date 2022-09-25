@@ -1,4 +1,5 @@
 import { MicroCMSContentId, MicroCMSDate, MicroCMSListResponse } from "microcms-js-sdk";
+import { GetRepositoriesQuery } from "generated";
 
 type StringRecord<T extends string> = Record<T, string>;
 
@@ -25,6 +26,7 @@ export type TweetType = StringRecord<TweetKey>;
 
 export type IndexProps = {
   blogData: MicroCMSListResponse<BlogType>;
+  githubQueryData: GetRepositoriesQuery;
   portfolioData: MicroCMSListResponse<PortfolioType>;
   twitterData: TwitterType;
 };
