@@ -1,9 +1,11 @@
 import "src/styles/globals.css";
 import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import { SWRDevTools } from "swr-devtools";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import { BaseLayout } from "src/layout/BaseLayout";
+
+const queryClient = new QueryClient();
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -15,7 +17,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
   return (
-    <SWRDevTools>
+    <QueryClientProvider client={queryClient}>
       <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
         <MantineProvider
           withGlobalStyles
@@ -29,7 +31,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           </BaseLayout>
         </MantineProvider>
       </ColorSchemeProvider>
-    </SWRDevTools>
+    </QueryClientProvider>
   );
 };
 

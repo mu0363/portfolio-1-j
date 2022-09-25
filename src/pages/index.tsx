@@ -1,27 +1,21 @@
 import { Container, Grid, Space } from "@mantine/core";
-import axios from "axios";
 import { GraphQLClient } from "graphql-request";
-import useSWR from "swr";
 import type { GetStaticProps, NextPage } from "next";
-import type { BlogType, IndexProps, PortfolioType, TwitterType } from "src/libs/types";
+import type { BlogType, IndexProps, PortfolioType } from "src/libs/types";
 import { GetRepositoriesQuery } from "generated";
 import { PrimaryButton } from "src/components/PrimaryButton";
 import { GET_REPOSITORIES } from "src/libs/graphql/queries";
+import { useTwitterQuery } from "src/libs/hooks/useTwitterQuery";
 import { client } from "src/libs/micro-cms/client";
 import { Blog } from "src/pages-components/blog";
 import { Hero, GitHub, Twitter } from "src/pages-components/index";
 import { Portfolio } from "src/pages-components/portfolio";
 
-const twitterFetcher = async (url: string): Promise<TwitterType[]> => {
-  const res = await axios.get<TwitterType[]>(url);
-  return res.data;
-};
-
 const IndexPage: NextPage<IndexProps> = (props) => {
   const { blogData, portfolioData, githubQueryData } = props;
-  // TODO: revalidateで空のtweetsをpropsで渡したのはなぜ?
-  const twitterResult = useSWR<TwitterType[]>(`/api/tweets`, twitterFetcher);
-  const tweets = twitterResult.data ?? [];
+  const { data } = useTwitterQuery();
+
+  if (!data) return <p>Loading...</p>;
 
   return (
     <>
@@ -38,7 +32,7 @@ const IndexPage: NextPage<IndexProps> = (props) => {
             <GitHub githubQueryData={githubQueryData} />
           </Grid.Col>
           <Grid.Col sm={12} md={6}>
-            <Twitter tweets={tweets} />
+            <Twitter tweets={data} />
           </Grid.Col>
         </Grid>
       </Container>
