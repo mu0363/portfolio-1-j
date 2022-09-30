@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from "next";
-import type { BlogType, IndexProps, PortfolioType } from "src/libs/types";
+import type { BlogType, IndexProps, PortfolioType } from "src/types";
 import { client } from "src/libs/micro-cms/client";
 import { Blog } from "src/pages-components/blog";
 

@@ -6,4 +6,4 @@ package-lock.json
 public
 eslintrc.js
 next.config.js
-generated.tsx
+generated.ts

@@ -1,7 +1,7 @@
 import { Avatar, Group, Space, Stack, Text } from "@mantine/core";
 import { format, parseISO } from "date-fns";
 import type { FC } from "react";
-import { TwitterType } from "src/libs/types/types";
+import { TwitterType } from "src/types";
 
 /** @package */
 export const TwitterContent: FC<TwitterType> = (props) => {

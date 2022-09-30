@@ -2,7 +2,7 @@ import { Space, Text } from "@mantine/core";
 import { format } from "date-fns";
 import Image from "next/image";
 import type { FC } from "react";
-import type { PortfolioType } from "src/libs/types";
+import type { PortfolioType } from "src/types";
 
 /** @package */
 export const PortfolioContent: FC<PortfolioType> = (props) => {

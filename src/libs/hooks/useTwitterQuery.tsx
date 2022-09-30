@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { TwitterType } from "src/libs/types";
+import { TwitterType } from "src/types";
 
 export const useTwitterQuery = () => {
   const tweetsFetcher = async () => {
