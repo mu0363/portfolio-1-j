@@ -6,7 +6,6 @@ import { TwitterType } from "src/types";
 /** @package */
 export const TwitterContent: FC<TwitterType> = (props) => {
   const { profile_image_url, name, tweet, created_at } = props;
-  // FIXME: レイアウト直したい、取得件数制限したい
   return (
     <Stack spacing={5}>
       <Group>
