@@ -1,3 +1,5 @@
+// FIXME:
+/* eslint-disable @typescript-eslint/unbound-method */
 import {
   Box,
   Burger,
@@ -35,8 +37,6 @@ const useStyles = createStyles((theme) => ({
 
 /** @package */
 export const Header: FC = () => {
-  // FIX ME
-  // eslint-disable-next-line @typescript-eslint/unbound-method
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const isDark = colorScheme === "dark";
   const { classes } = useStyles();
