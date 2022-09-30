@@ -3,7 +3,7 @@ import { PortfolioContent } from "./PortfolioContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/components/SectionTitle";
 import { PageContainer } from "src/layout/PageContainer";
-import { PortfolioType } from "src/libs/types";
+import { PortfolioType } from "src/types";
 
 type Props = {
   portfolioArray: PortfolioType[];

@@ -1,7 +1,7 @@
 import { Container, Text } from "@mantine/core";
 import { format } from "date-fns";
 import type { NextPage, GetStaticPaths, GetStaticProps } from "next";
-import type { BlogType, ContentType } from "src/libs/types";
+import type { BlogType, ContentType } from "src/types";
 import { SectionTitle } from "src/components/SectionTitle";
 import { client } from "src/libs/micro-cms/client";
 

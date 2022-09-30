@@ -2,7 +2,7 @@ import { Button, Center, Space, Stack, Textarea, TextInput, createStyles } from 
 import { useForm, zodResolver } from "@mantine/form";
 import { z } from "zod";
 import type { FC } from "react";
-import type { ContactForm } from "src/libs/types";
+import type { ContactForm } from "src/types";
 import { SectionTitle } from "src/components/SectionTitle";
 import { PageContainer } from "src/layout/PageContainer";
 

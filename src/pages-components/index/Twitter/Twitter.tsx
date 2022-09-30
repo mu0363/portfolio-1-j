@@ -2,7 +2,7 @@ import { Box, Button, Center } from "@mantine/core";
 import { TwitterContent } from "./TwitterContent";
 import type { FC } from "react";
 import { SectionTitle } from "src/components/SectionTitle";
-import { TwitterType } from "src/libs/types";
+import { TwitterType } from "src/types";
 
 /** @package */
 export const Twitter: FC<{ tweets: TwitterType[] }> = (props) => {

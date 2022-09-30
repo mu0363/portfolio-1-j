@@ -37,3 +37,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 codegen.yml
+codegen.ts
