@@ -44,7 +44,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<TwitterType[] |
       profile_image_url: user.profile_image_url ?? "",
       tweet: element.text,
       created_at: element.created_at ?? "",
-      // FIXME:
       name: "osamu",
     };
     return tweet;
