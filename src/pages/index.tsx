@@ -1,18 +1,19 @@
 import { Container, Grid, Space } from "@mantine/core";
 import { GraphQLClient } from "graphql-request";
 import type { GetStaticProps, NextPage } from "next";
-import type { BlogType, IndexProps, PortfolioType } from "src/libs/types";
-import { GetRepositoriesQuery } from "generated";
+import type { BlogType, IndexProps, PortfolioType } from "src/types";
 import { PrimaryButton } from "src/components/PrimaryButton";
 import { GET_REPOSITORIES } from "src/libs/graphql/queries";
 import { useTwitterQuery } from "src/libs/hooks/useTwitterQuery";
 import { client } from "src/libs/micro-cms/client";
 import { Blog } from "src/pages-components/blog";
-import { Hero, GitHub, Twitter } from "src/pages-components/index";
+import { GitHub, Hero, Twitter } from "src/pages-components/index";
 import { Portfolio } from "src/pages-components/portfolio";
+import { GetRepositoriesQuery } from "src/types/generated";
 
 const IndexPage: NextPage<IndexProps> = (props) => {
   const { blogData, portfolioData, githubQueryData } = props;
+
   const { data } = useTwitterQuery();
 
   return (

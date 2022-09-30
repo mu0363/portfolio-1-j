@@ -11,7 +11,7 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier --write .",
     "test-all": "yarn check-types && yarn check-format && yarn check-lint && yarn build",
-    "codegen": "graphql-codegen --config codegen.yml"
+    "codegen": "graphql-codegen --config ./codegen.ts"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
@@ -38,10 +38,10 @@
     "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^2.12.1",
-    "@graphql-codegen/typescript": "^2.7.3",
-    "@graphql-codegen/typescript-operations": "^2.5.3",
-    "@graphql-codegen/typescript-react-apollo": "^3.3.3",
+    "@graphql-codegen/cli": "2.13.1",
+    "@graphql-codegen/typescript": "2.7.3",
+    "@graphql-codegen/typescript-operations": "2.5.3",
+    "@graphql-codegen/typescript-react-apollo": "3.3.3",
     "@types/node": "17.0.23",
     "@types/react": "^18.0.17",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
@@ -61,7 +61,8 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.0",
     "prettier": "2.6.2",
-    "typescript": "4.5.4"
+    "typescript": "4.5.4",
+    "@graphql-codegen/introspection": "2.2.1"
   },
   "postcss": {
     "plugins": {

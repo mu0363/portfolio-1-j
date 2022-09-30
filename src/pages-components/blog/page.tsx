@@ -2,8 +2,8 @@ import { Space } from "@mantine/core";
 import type { FC } from "react";
 import { SectionTitle } from "src/components/SectionTitle";
 import { PageContainer } from "src/layout/PageContainer";
-import { BlogType } from "src/libs/types";
 import { BlogContent } from "src/pages-components/blog/BlogContent";
+import { BlogType } from "src/types";
 
 /** @package */
 export const Blog: FC<{ blogArray: BlogType[] }> = ({ blogArray }) => {
