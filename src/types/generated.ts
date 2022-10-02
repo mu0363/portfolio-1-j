@@ -25265,30 +25265,28 @@ export enum WorkflowRunOrderField {
 export type GetRepositoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetRepositoriesQuery = { user: { pinnedItems: { edges: Array<{ node: { id: string, name: string, description: string | null, stargazerCount: number, forkCount: number, languages: { totalCount: number, edges: Array<{ size: number, node: { id: string, name: string, color: string | null } } | null> | null } | null } | {} | null } | null> | null } } | null };
+export type GetRepositoriesQuery = { user: { pinnedItems: { nodes: Array<{ id: string, name: string, description: string | null, stargazerCount: number, forkCount: number, languages: { totalCount: number, edges: Array<{ size: number, node: { id: string, name: string, color: string | null } } | null> | null } | null } | {} | null> | null } } | null };
 
 
 export const GetRepositoriesDocument = gql`
     query getRepositories {
   user(login: "mu0363") {
-    pinnedItems(first: 10) {
-      edges {
-        node {
-          ... on Repository {
-            id
-            name
-            description
-            stargazerCount
-            forkCount
-            languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
-              totalCount
-              edges {
-                size
-                node {
-                  id
-                  name
-                  color
-                }
+    pinnedItems(first: 10, types: REPOSITORY) {
+      nodes {
+        ... on Repository {
+          id
+          name
+          description
+          stargazerCount
+          forkCount
+          languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+            totalCount
+            edges {
+              size
+              node {
+                id
+                name
+                color
               }
             }
           }
