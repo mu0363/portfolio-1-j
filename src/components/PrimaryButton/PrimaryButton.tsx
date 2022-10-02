@@ -2,7 +2,6 @@ import { Center, Button } from "@mantine/core";
 import { NextLink } from "@mantine/next";
 import type { FC } from "react";
 
-// FIXME: constantから型を流用できそう
 type PrimaryButtonType = {
   href: "/" | "/about" | "/blog" | "/portfolio" | "/contact";
   text: string;
