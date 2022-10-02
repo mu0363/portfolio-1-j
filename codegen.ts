@@ -14,6 +14,10 @@ const config: CodegenConfig = {
   generates: {
     "src/types/generated.ts": {
       plugins: ["typescript", "typescript-operations", "typescript-react-apollo"],
+      config: {
+        skipTypename: true,
+        avoidOptionals: true,
+      },
     },
   },
 };
