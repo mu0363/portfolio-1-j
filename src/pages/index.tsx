@@ -1,11 +1,11 @@
 import { Container, Grid, Space } from "@mantine/core";
-import { GraphQLClient } from "graphql-request";
 import type { GetStaticProps, NextPage } from "next";
 import type { BlogType, IndexProps, PortfolioType } from "src/types";
 import { PrimaryButton } from "src/components/PrimaryButton";
+import { githubClient } from "src/libs/github/githubClient";
 import { GET_REPOSITORIES } from "src/libs/graphql/queries";
 import { useTwitterQuery } from "src/libs/hooks/useTwitterQuery";
-import { client } from "src/libs/micro-cms/client";
+import { microCMSClient } from "src/libs/micro-cms/microCMSClient";
 import { Blog } from "src/pages-components/blog";
 import { GitHub, Hero, Twitter } from "src/pages-components/index";
 import { Portfolio } from "src/pages-components/portfolio";
@@ -45,16 +45,9 @@ const IndexPage: NextPage<IndexProps> = (props) => {
 export default IndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  // microCMS
-  const blogData = await client.getList<BlogType>({ endpoint: "blog", queries: { limit: 5 } });
-  const portfolioData = await client.getList<PortfolioType>({ endpoint: "portfolio", queries: { limit: 6 } });
-  const endpoint = "https://api.github.com/graphql";
-  const graphQLClient = new GraphQLClient(endpoint, {
-    headers: {
-      authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-    },
-  });
-  const githubQueryData = await graphQLClient.request<GetRepositoriesQuery>(GET_REPOSITORIES);
+  const blogData = await microCMSClient.getList<BlogType>({ endpoint: "blog", queries: { limit: 5 } });
+  const portfolioData = await microCMSClient.getList<PortfolioType>({ endpoint: "portfolio", queries: { limit: 6 } });
+  const githubQueryData = await githubClient.request<GetRepositoriesQuery>(GET_REPOSITORIES);
 
   return {
     props: { blogData, portfolioData, githubQueryData },
