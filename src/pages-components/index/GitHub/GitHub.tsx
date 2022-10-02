@@ -20,7 +20,7 @@ export const GitHub: FC<Props> = ({ githubQueryData }) => {
     <Box>
       <SectionTitle title="Github" />
       {githubNodeData &&
-        githubNodeData.map((github, index) => {
+        githubNodeData.map((github) => {
           type ExcludeEmptyObject<T> = T extends { id: string } ? T : never;
           type GithubType = ExcludeEmptyObject<typeof github>;
           const assertedGithub = github as GithubType;
@@ -30,6 +30,7 @@ export const GitHub: FC<Props> = ({ githubQueryData }) => {
           }, 0);
           const languagesInfos = assertedGithub.languages?.edges?.map((edge) => {
             return {
+              id: edge?.node.id,
               name: edge?.node.name,
               percent: totalSize ? Math.round(((edge ? edge.size : 0) / totalSize) * 100) : 0,
               color: edge?.node.color,
@@ -37,7 +38,7 @@ export const GitHub: FC<Props> = ({ githubQueryData }) => {
           });
 
           return (
-            <div key={index}>
+            <div key={assertedGithub.id}>
               {assertedGithub && (
                 <Stack spacing={5}>
                   <Text size="xl" weight={500}>
@@ -53,13 +54,13 @@ export const GitHub: FC<Props> = ({ githubQueryData }) => {
                     <Group>
                       <IconStar size={18} />
                       <Text size="sm" weight={700}>
-                        {assertedGithub.stargazers.totalCount}
+                        {assertedGithub.stargazerCount}
                       </Text>
                     </Group>
                     <Group>
                       <IconGitFork size={18} />
                       <Text size="sm" weight={700}>
-                        {assertedGithub.forks.totalCount}
+                        {assertedGithub.forkCount}
                       </Text>
                     </Group>
                   </Group>
@@ -74,7 +75,7 @@ export const GitHub: FC<Props> = ({ githubQueryData }) => {
                   />
                   <Group>
                     {languagesInfos?.map((languagesInfo) => (
-                      <Group spacing={5} key={languagesInfo.name}>
+                      <Group spacing={5} key={languagesInfo.id}>
                         <Text size={8} color={languagesInfo.color ? languagesInfo.color : "#FFF"}>
                           ●
                         </Text>
