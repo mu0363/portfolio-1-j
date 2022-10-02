@@ -3,7 +3,7 @@ import { format } from "date-fns";
 import type { NextPage, GetStaticPaths, GetStaticProps } from "next";
 import type { BlogType, ContentType } from "src/types";
 import { SectionTitle } from "src/components/SectionTitle";
-import { client } from "src/libs/micro-cms/client";
+import { microCMSClient } from "src/libs/micro-cms/microCMSClient";
 
 const BlogId: NextPage<ContentType> = (props) => {
   const { title, body, publishedAt } = props;
@@ -20,7 +20,7 @@ const BlogId: NextPage<ContentType> = (props) => {
 };
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-  const data = await client.getList<BlogType>({ endpoint: "blog" });
+  const data = await microCMSClient.getList<BlogType>({ endpoint: "blog" });
   const ids = data.contents.map((content) => `/blog/${content.id}`);
   return {
     fallback: "blocking",
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
 
 export const getStaticProps: GetStaticProps<ContentType, { id: string }> = async (ctx) => {
   if (!ctx.params) return { notFound: true };
-  const data = await client.getListDetail<BlogType>({ contentId: ctx.params.id, endpoint: "blog" });
+  const data = await microCMSClient.getListDetail<BlogType>({ contentId: ctx.params.id, endpoint: "blog" });
 
   return {
     props: data,

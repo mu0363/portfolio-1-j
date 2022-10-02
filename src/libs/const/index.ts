@@ -1,2 +1,1 @@
-export { blogData, portfolioData, githubData, twitterData } from "./mock-data";
-export { getPath, PATH } from "./path";
+export { getPath, PATH, GITHUB_ENDPOINT } from "./path";

@@ -11,7 +11,7 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "prettier --write .",
     "test-all": "yarn check-types && yarn check-format && yarn check-lint && yarn build",
-    "codegen": "graphql-codegen --config ./codegen.ts"
+    "codegen": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env.local"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
@@ -26,6 +26,7 @@
     "@tanstack/react-query": "^4.6.0",
     "axios": "^0.27.2",
     "date-fns": "^2.29.1",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
     "microcms-js-sdk": "^2.2.1",
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.13.1",
+    "@graphql-codegen/introspection": "2.2.1",
     "@graphql-codegen/typescript": "2.7.3",
     "@graphql-codegen/typescript-operations": "2.5.3",
     "@graphql-codegen/typescript-react-apollo": "3.3.3",
@@ -47,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "autoprefixer": "^10.4.8",
+    "dotenv-cli": "^6.0.0",
     "eslint": "^8.21.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-next": "12.1.4",
@@ -61,8 +64,7 @@
     "eslint-plugin-unused-imports": "^2.0.0",
     "husky": "^7.0.0",
     "prettier": "2.6.2",
-    "typescript": "4.5.4",
-    "@graphql-codegen/introspection": "2.2.1"
+    "typescript": "4.5.4"
   },
   "postcss": {
     "plugins": {
