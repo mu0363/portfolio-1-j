@@ -1,43 +1,5 @@
 import { gql } from "graphql-request";
 
-// export const GET_REPOSITORIES = gql`
-//   query getRepositories {
-//     user(login: "mu0363") {
-//       repositories(
-//         isFork: false
-//         privacy: PUBLIC
-//         ownerAffiliations: [OWNER]
-//         last: 100
-//         orderBy: { field: NAME, direction: ASC }
-//       ) {
-//         nodes {
-//           id
-//           name
-//           owner {
-//             login
-//           }
-//           description
-//           stargazers {
-//             totalCount
-//           }
-//           forks {
-//             totalCount
-//           }
-//           languages(first: 100, orderBy: { field: SIZE, direction: DESC }) {
-//             totalCount
-//             edges {
-//               size
-//               node {
-//                 name
-//                 color
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
 export const GET_REPOSITORIES = gql`
   query getRepositories {
     user(login: "mu0363") {
@@ -48,17 +10,14 @@ export const GET_REPOSITORIES = gql`
               id
               name
               description
-              stargazers {
-                totalCount
-              }
-              forks {
-                totalCount
-              }
+              stargazerCount
+              forkCount
               languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
                 totalCount
                 edges {
                   size
                   node {
+                    id
                     name
                     color
                   }
