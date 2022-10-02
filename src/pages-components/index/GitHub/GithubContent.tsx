@@ -4,7 +4,7 @@ import type { FC } from "react";
 import type { GetRepositoriesQuery } from "src/types/generated";
 
 type Props = {
-  repositoryNodes: Exclude<Exclude<GetRepositoriesQuery["user"], null>["pinnedItems"], null>["nodes"] | undefined;
+  repositoryNodes: Exclude<GetRepositoriesQuery["user"], null>["pinnedItems"]["nodes"] | undefined;
 };
 
 /** @package */
@@ -31,7 +31,7 @@ export const GithubContent: FC<Props> = ({ repositoryNodes }) => {
 
         return (
           <div key={id}>
-            {assertedRepository && (
+            {repository && (
               <Stack spacing={5}>
                 <Text size="xl" weight={500}>
                   {name}
