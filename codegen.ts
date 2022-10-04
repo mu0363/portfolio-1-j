@@ -18,6 +18,9 @@ const config: CodegenConfig = {
       config: {
         skipTypename: true,
         avoidOptionals: true,
+        scalars: {
+          DateTime: "string",
+        },
       },
     },
   },

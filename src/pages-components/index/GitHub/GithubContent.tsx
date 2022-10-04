@@ -1,6 +1,7 @@
 import { Space, Stack, Text, Group, Progress } from "@mantine/core";
 import { IconGitFork, IconStar } from "@tabler/icons";
 import type { FC } from "react";
+import type { RepositoryType } from "src/types";
 import type { GetRepositoriesQuery } from "src/types/generated";
 
 type Props = {
@@ -12,11 +13,13 @@ export const GithubContent: FC<Props> = ({ repositoryNodes }) => {
   return (
     <>
       {repositoryNodes?.map((repository) => {
-        type ExcludeEmptyObject<T> = T extends { id: string } ? T : never;
-        type RepositoryType = ExcludeEmptyObject<typeof repository>;
-        const assertedRepository = repository as Exclude<RepositoryType, null>;
-        const { id, name, description, stargazerCount, forkCount, languages } = assertedRepository;
+        if (repository === null) {
+          return null;
+        }
 
+        repository;
+        const assertedRepository = repository as RepositoryType;
+        const { id, name, description, stargazerCount, forkCount, languages } = assertedRepository;
         const totalSize = languages?.edges?.reduce((sum, edge) => {
           return sum + (edge ? edge.size : 0);
         }, 0);
