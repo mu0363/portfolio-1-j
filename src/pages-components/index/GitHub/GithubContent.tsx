@@ -13,11 +13,10 @@ export const GithubContent: FC<Props> = ({ repositoryNodes }) => {
   return (
     <>
       {repositoryNodes?.map((repository) => {
-        if (repository === null) {
+        if (!repository) {
           return null;
         }
 
-        repository;
         const assertedRepository = repository as RepositoryType;
         const { id, name, description, stargazerCount, forkCount, languages } = assertedRepository;
         const totalSize = languages?.edges?.reduce((sum, edge) => {
