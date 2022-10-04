@@ -14,8 +14,8 @@ export type Scalars = {
   Int: number;
   Float: number;
   Base64String: any;
-  Date: any;
-  DateTime: any;
+  Date: string;
+  DateTime: string;
   GitObjectID: any;
   GitSSHRemote: any;
   GitTimestamp: any;
@@ -25265,7 +25265,7 @@ export enum WorkflowRunOrderField {
 export type GetRepositoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetRepositoriesQuery = { user: { pinnedItems: { nodes: Array<{ id: string, name: string, description: string | null, stargazerCount: number, forkCount: number, languages: { totalCount: number, edges: Array<{ size: number, node: { id: string, name: string, color: string | null } } | null> | null } | null } | {} | null> | null } } | null };
+export type GetRepositoriesQuery = { user: { pinnedItems: { nodes: Array<{ id: string, name: string, description: string | null, stargazerCount: number, forkCount: number, createdAt: string, languages: { totalCount: number, edges: Array<{ size: number, node: { id: string, name: string, color: string | null } } | null> | null } | null } | {} | null> | null } } | null };
 
 
 export const GetRepositoriesDocument = gql`
@@ -25279,6 +25279,7 @@ export const GetRepositoriesDocument = gql`
           description
           stargazerCount
           forkCount
+          createdAt
           languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
             totalCount
             edges {

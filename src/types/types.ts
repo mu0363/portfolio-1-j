@@ -39,3 +39,11 @@ export type User = {
   id: string;
   name: string;
 };
+
+// Github
+type ExcludeEmptyObject<T> = T extends { id: string } ? T : never;
+type ExcludeNullFromRepository = Exclude<
+  Exclude<Exclude<GetRepositoriesQuery["user"], null>["pinnedItems"]["nodes"], null>[number],
+  null
+>;
+export type RepositoryType = ExcludeEmptyObject<ExcludeNullFromRepository>;

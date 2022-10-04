@@ -1,1 +1,9 @@
-export type { BlogType, PortfolioType, IndexProps, TwitterType, ContentType, ContactForm } from "./types";
+export type {
+  BlogType,
+  PortfolioType,
+  IndexProps,
+  TwitterType,
+  ContentType,
+  ContactForm,
+  RepositoryType,
+} from "./types";

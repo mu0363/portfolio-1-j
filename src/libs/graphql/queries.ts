@@ -11,6 +11,7 @@ export const GET_REPOSITORIES = gql`
             description
             stargazerCount
             forkCount
+            createdAt
             languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
               totalCount
               edges {
